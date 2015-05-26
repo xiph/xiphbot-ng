@@ -5,7 +5,7 @@ use std::net::UdpSocket;
 use std::sync::Arc;
 
 fn main() {
-    let socket = UdpSocket::bind("127.0.0.1:34254").unwrap();
+    let socket = UdpSocket::bind("127.0.0.1:61001").unwrap();
     let server = Arc::new(IrcServer::new("config.json").unwrap());
     server.identify().unwrap();
     let server_udp_thread = server.clone();
