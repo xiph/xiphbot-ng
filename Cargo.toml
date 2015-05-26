@@ -1,0 +1,7 @@
+[package]
+name = "xiphbot-ng"
+version = "0.0.1"
+authors = ["Thomas Daede <daede003@umn.edu>"]
+
+[dependencies]
+irc = "0.8.14"
