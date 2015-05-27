@@ -12,8 +12,9 @@ fn main() {
     std::thread::spawn(move || {
         let mut buf = [0; 1000];
         loop {
-            let _ = socket.recv_from(&mut buf);
-            let s = std::str::from_utf8(&mut buf).unwrap();
+            let (len, _) = socket.recv_from(&mut buf).unwrap();
+            let message = &buf[..len];
+            let s = std::str::from_utf8(message).unwrap();
             println!("{}", &s);
             let _ = server_udp_thread.send(Command::PRIVMSG("#xiph".to_string(), s.to_string()));
         }
